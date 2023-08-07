@@ -1,0 +1,12 @@
+name: GH action test
+
+on: [push]
+
+jobs:
+  COMPILE-CHECK:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 123
+      - run: ls -al
+      - run: ls -al /
+k
