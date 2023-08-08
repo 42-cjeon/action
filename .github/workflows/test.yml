@@ -6,12 +6,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      -
-        name: checkout
+      - name: checkout
         uses: actions/checkout@v3
-      -
-        name: hmm
-        run: |
-          pwd
-          ls -al
-  
+      - name: hello world
+        uses: ./
+        id: hello
+        with:
+          who-to-greet: 'abc'
+      - name: show result
+        run: echo "The time was ${{ steps.hello.outputs.time }}."
