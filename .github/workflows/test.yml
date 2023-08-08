@@ -1,11 +1,17 @@
-name: GH action test
+name: build
 
 on: [push]
 
 jobs:
-  COMPILE-CHECK:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 123
-      - run: ls -al
-      - run: ls -al /
+      -
+        name: checkout
+        uses: actions/checkout@v3
+      -
+        name: hmm
+        run: |
+          pwd
+          ls -al
+  
