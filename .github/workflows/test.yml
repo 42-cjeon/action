@@ -9,4 +9,3 @@ jobs:
       - run: echo 123
       - run: ls -al
       - run: ls -al /
-k
