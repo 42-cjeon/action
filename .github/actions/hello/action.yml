@@ -4,5 +4,5 @@ outputs:
   time: # id of output
     description: 'The time we greeted you'
 runs:
-  using: 'docker'
-  image: "$GITHUB_WORKSPACE/Dockerfile"
+  using: docker
+  image: Dockerfile
