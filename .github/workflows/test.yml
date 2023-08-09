@@ -8,23 +8,26 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install tools
+
+      - name: Setup QEMU
+        uses: docker/setup-qemu-action@v2.2.0
+
+      - name: Setup Rust 
+        uses: actions-rs/toolchain@v1.0.6
+        with:
+          override: true
+          profile: minimal
+          toolchain: nightly
+          components: rust-src
+
+      - name: Setup extra tools
         run: |
           sudo apt update && sudo apt install -y \
             gcc-i686-linux-gnu \
             build-essential \
-            qemu-system \
             xorriso \
             grub-pc \
-            nasm \
-            curl
-      - name: Install rust
-        run: |
-          curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s - \
-            -y \
-            --default-toolchain nightly \
-            --component rust-src
+            nasm
+
       - name: build / run
-        run: |
-          source "$HOME/.cargo/env"
-          cargo run
+        run: cargo run
