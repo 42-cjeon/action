@@ -12,5 +12,5 @@ jobs:
         uses: ./.github/actions/hello
         id: hw
       - name: Show output
-        runs: |
+        run: |
           echo "${{ steps.hw.output.time }}"
