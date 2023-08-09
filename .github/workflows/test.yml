@@ -13,4 +13,4 @@ jobs:
         id: hw
       - name: Show output
         run: |
-          echo "${{ steps.hw.output.time }}"
+          echo "${{ steps.hw.outputs.time }}"
