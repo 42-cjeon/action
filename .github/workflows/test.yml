@@ -8,9 +8,16 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - name: hello world
-        uses: ./.github/actions/hello
-        id: hw
-      - name: Show output
+      - name: setup
         run: |
-          echo "${{ steps.hw.outputs.time }}"
+          apt update && apt install -y \
+            gcc-i686-linux-gnu \
+            build-essential \
+            qemu-system \
+            xorriso \
+            grub-pc \
+            nasm \
+            curl
+      - name: done
+        run: |
+          nasm --version
